@@ -1,11 +1,11 @@
 #include <GL/glut.h>
 float angle = 0.0f;
-float scale=1.0f;
-float x_translation=0.0f;
-float y_translation=0.0f;
-float z_translation=-5.0f;
+float scale = 1.0f;
+float x_translation = 0.0f;
+float y_translation = 0.0f;
+float z_translation = -5.0f;
 
-float vertices[8][3]=
+float vertices[8][3] =
 {
     {-0.5,-0.5,-0.5},
     {0.5,-0.5,-0.5},
@@ -82,33 +82,35 @@ void display(){
     drawCube();
     glutSwapBuffers();
 }
+
 void reshape(int w,int h)
 {
     glViewport(0,0,w,h);
 }
+
 void keyboard (unsigned char key,int x,int y)
 {
     switch(key)
     {
-        case 'r': angle+= 5.0f;
+        case 'r': angle += 5.0f;
             break;
-        case 'R': angle-= 5.0f;
+        case 'R': angle -= 5.0f;
             break;
-        case 's': scale+= 0.1f;
+        case 's': scale += 0.1f;
             break;
-        case 'S': scale-= 0.1f;
+        case 'S': scale -= 0.1f;
             break;
-        case 'x': x_translation+= 0.1f;
+        case 'x': x_translation += 0.1f;
             break;
-        case 'X': x_translation-= 0.1f;
+        case 'X': x_translation -= 0.1f;
             break;
-        case 'y': y_translation+= 0.1f;
+        case 'y': y_translation += 0.1f;
             break;
-        case 'Y': y_translation-= 0.1f;
+        case 'Y': y_translation -= 0.1f;
             break;
-        case 'z': z_translation+= 0.1f;
+        case 'z': z_translation += 0.1f;
             break;
-        case 'Z': z_translation-= 0.1f;
+        case 'Z': z_translation -= 0.1f;
             break;
         case 27: exit(0);
             break;
