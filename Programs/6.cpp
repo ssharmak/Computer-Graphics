@@ -1,10 +1,10 @@
 #include<GL/glut.h>
 
-float object_size=0.2f;
-float object_x=0.0f;
-float object_y=0.0f;
-float velocity_x=0.005f;
-float velocity_y=0.005f;
+float object_size = 0.2f;
+float object_x = 0.0f;
+float object_y = 0.0f;
+float velocity_x = 0.005f;
+float velocity_y = 0.005f;
 
 void init()
 {
@@ -17,27 +17,27 @@ void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_QUADS);
-    glColor3f(0.0f,0.0f,0.0f);
-    glVertex2f(object_x-object_size,object_y-object_size);
-    glVertex2f(object_x+object_size,object_y-object_size);
-    glVertex2f(object_x+object_size,object_y+object_size);
-    glVertex2f(object_x-object_size,object_y+object_size);
+    glColor3f(0.0f,1.0f,0.0f); //required color can be given
+    glVertex2f(object_x - object_size, object_y - object_size);
+    glVertex2f(object_x + object_size, object_y - object_size);
+    glVertex2f(object_x + object_size, object_y + object_size);
+    glVertex2f(object_x - object_size, object_y + object_size);
     glEnd();
     glFlush();
 }
 
 void update(int value)
 {
-    object_x+=velocity_x;
-    object_y+=velocity_y;
-    if(object_x+object_size>=1.0f||object_x-object_size<=-1.0f)
+    object_x += velocity_x;
+    object_y += velocity_y;
+    if(object_x + object_size >= 1.0f || object_x - object_size <= -1.0f)
     {
-        velocity_x*=-1;
+        velocity_x *= -1;
     }
 
-    if(object_y+object_size>=1.0f||object_y-object_size<=-1.0f)
+    if(object_y + object_size >= 1.0f || object_y - object_size <= -1.0f)
     {
-        velocity_y*=-1;
+        velocity_y *= -1;
     }
     glutPostRedisplay();
     glutTimerFunc(30,update,0);
